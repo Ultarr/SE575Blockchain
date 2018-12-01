@@ -1,0 +1,7 @@
+<div><label>Match: <input [(ngModel)]="this.match" placeholder="Enter Match Condition"></label></div>
+<div><label>Max Tries: <input [(ngModel)]="this.maxTries" placeholder="Enter Max Tries on Solve"></label></div>
+<div><mat-select [(value)]="this.backend">
+    <mat-option value="Typescript">Local Typescript</mat-option>
+    <mat-option value="Java">Remote Java</mat-option>
+</mat-select></div>
+<div><button md-raised-button (click)="onClose()">Save</button></div>

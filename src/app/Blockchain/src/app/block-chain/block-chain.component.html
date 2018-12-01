@@ -1,0 +1,24 @@
+<div>
+  <button mat-raised-button (click)="openOptions()">Preferences</button>
+  <button mat-raised-button (click)="openData()">Add Block</button>
+</div>
+
+<table>
+  <ng-container *ngFor="let block of blockchain; let i = index">
+    <ng-container *ngIf="i%2===0"><tr></ng-container>
+      <td>
+        <div><label>BlockChain Block: </label>{{i+1}}</div>
+        <div><label>Status: </label>{{block.status}}</div>
+        <form (ngSubmit)="block.solve(this.backend, this.match, this.maxTries)" #blockForm="ngForm">
+          <div><span>Id: </span>{{block.id}}</div>
+          <div><label>Data: <input [(ngModel)]="block.data" (ngModelChange)="block.reHash(this.match)" name="data"> </label></div>
+          <div><span>Parent: </span>{{block.parent.hash}}</div>
+          <div><span>Nonce: </span>{{block.nonce}}</div>
+          <div><span>Hash: </span>{{block.hash}}</div>
+          <div><span>Solved in: </span>{{block.solveTime}}<span>ms</span></div>
+          <div><button type="submit" [disabled]="!block.parent.isSolved(this.match)">Solve</button></div>
+        </form>
+      </td>
+    <ng-container *ngIf="i%2===1"><tr></ng-container>
+  </ng-container>
+</table>
