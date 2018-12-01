@@ -37,7 +37,7 @@ export class BlockComponent implements OnInit {
     var start = performance.now();
     this.status = "Bad";
     if (backend === BackendEnum.java) {
-      this.http.post('http://localhost:8080', "Match:" + match + "\nMaxTries:" + maxTries.toString() + "\nHash:" + this.getHashInput() + "\n", {responseType: 'text'}).subscribe(res => this.getResponse(+res, match), error => console.log(error));
+      this.http.post('http://localhost:8080', "Match:" + match + "\nMaxTries:" + maxTries.toString() + "\nHash:" + this.getHashInput() + "\n", {responseType: 'text'}).subscribe(res => this.getResponse(+res, match, start), error => console.log(error));
     } else if (backend === BackendEnum.typescript) {
       for (this.nonce = 0; this.nonce<maxTries; this.nonce++) {
         this.reHash(match);
@@ -46,8 +46,8 @@ export class BlockComponent implements OnInit {
           break;
         }
       }
+      this.solveTime = Math.floor(performance.now() - start);
     }
-    this.solveTime = Math.floor(performance.now() - start);
   }
 
   generateId(length: number = 0): string {
@@ -86,11 +86,12 @@ export class BlockComponent implements OnInit {
     return this.id.concat(this.parent.hash).concat(this.data);
   }
 
-  getResponse(response: number, match: string) {
+  getResponse(response: number, match: string, start: number) {
     this.nonce = response;
     this.reHash(match);
     if (this.hash.lastIndexOf(match, 0) === 0) {
       this.status = "Good";
     }
+    this.solveTime = Math.floor(performance.now() - start);
   }
 }
