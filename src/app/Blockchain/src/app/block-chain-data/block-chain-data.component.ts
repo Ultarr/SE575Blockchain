@@ -15,7 +15,14 @@ export class BlockChainDataComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClose() {
-    this.thisDialogRef.close(this.data);
+  onClose(saved?: boolean) {
+    if (saved) {
+      let result: [string, boolean];
+      result = [this.data, saved];
+      this.thisDialogRef.close(result);
+    }
+    else {
+      this.thisDialogRef.close();
+    }
   }
 }

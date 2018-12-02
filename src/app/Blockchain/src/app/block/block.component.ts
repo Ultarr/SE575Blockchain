@@ -26,23 +26,18 @@ export class BlockComponent implements OnInit {
 
   reHash(match: string) {
     this.hash = this.getHash();
-    if (this.isSolved(match)) {
-      this.status = "Good";
-    } else {
-      this.status = "Bad";
-    }
+    this.setStatus(this.isSolved(match));
   }
 
   solve(backend: BackendEnum, match: string, maxTries: number) {
     var start = performance.now();
-    this.status = "Bad";
     if (backend === BackendEnum.java) {
       this.http.post('http://localhost:8080', "Match:" + match + "\nMaxTries:" + maxTries.toString() + "\nHash:" + this.getHashInput() + "\n", {responseType: 'text'}).subscribe(res => this.getResponse(+res, match, start), error => console.log(error));
     } else if (backend === BackendEnum.typescript) {
       for (this.nonce = 0; this.nonce<maxTries; this.nonce++) {
         this.reHash(match);
         if (this.hash.lastIndexOf(match, 0) === 0) {
-          this.status = "Good";
+          this.setStatus(true);
           break;
         }
       }
@@ -72,12 +67,14 @@ export class BlockComponent implements OnInit {
     if (this.index == -1) {
       return true;
     }
-    return this.hash.lastIndexOf(match, 0) === 0 && this.parent.isSolved(match);
+    var result: boolean = this.hash.lastIndexOf(match, 0) === 0 && this.parent.isSolved(match);
+    this.setStatus(result);
+    return result;
   }
 
   defaultParent(): BlockComponent {
     var block: BlockComponent = new BlockComponent(this.http);
-    block.hash = "00000000000000000000000000000000";
+    block.hash = "0000000000000000000000000000000000000000000000000000000000000000";
     block.index = -1;
     return block;
   }
@@ -89,9 +86,14 @@ export class BlockComponent implements OnInit {
   getResponse(response: number, match: string, start: number) {
     this.nonce = response;
     this.reHash(match);
-    if (this.hash.lastIndexOf(match, 0) === 0) {
-      this.status = "Good";
-    }
     this.solveTime = Math.floor(performance.now() - start);
+  }
+
+  setStatus(solved: boolean) {
+    if (solved) {
+      this.status = "Good";
+    } else {
+      this.status = "Bad";
+    }
   }
 }

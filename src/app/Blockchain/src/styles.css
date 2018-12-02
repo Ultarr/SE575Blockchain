@@ -1,2 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+mat-select {
+	width: 50% !important;
+}
+
+.td-container {
+	width: 35%;
+	display: inline;
+}
+
+.block-solved {
+	border: 1px solid black;
+	font-family: monospace;
+	background-color: green;
+}
+
+.block-not-solved {
+	border: 1px solid black;
+	font-family: monospace;
+	background-color: red;
+}
+
+.block-title {
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.block-entry {
+	border-top: 1px solid black;
+}
+
+.entry-title {
+	width: 10% !important; 
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.block-submit {
+	border-top: 1px solid black;
+	text-align: center;
+}
+
+.centered {
+	text-align: center;
+}

@@ -33,10 +33,15 @@ export class BlockChainOptionsComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClose() {
-    let result: [string, number, BackendEnum];
-    result = [this.match, this.maxTries, this.backend];
-    this.thisDialogRef.close(result);
+  onClose(saved?: boolean) {
+    if (saved) {
+      let result: [string, number, BackendEnum];
+      result = [this.match, this.maxTries, this.backend];
+      this.thisDialogRef.close(result);
+    }
+    else {
+      this.thisDialogRef.close();
+    }
   }
 
 }

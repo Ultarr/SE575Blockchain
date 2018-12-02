@@ -38,8 +38,8 @@ export class BlockChainComponent implements OnInit {
 
   openOptions() {
     let dialogRef = this.dialog.open(BlockChainOptionsComponent, {
-      height: '600px',
-      width: '600px',
+      height: '20%',
+      width: '20%',
       data: [this.match, this.maxTries, this.backend],
 
     });
@@ -54,11 +54,13 @@ export class BlockChainComponent implements OnInit {
 
   openData() {
     let dialogRef = this.dialog.open(BlockChainDataComponent, {
-      height: '200px',
-      width: '400px',
+      height: '15%',
+      width: '20%',
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.newBlock(result);
+      if (result) {
+        this.newBlock(result[0]);
+      }
     });
   }
 }
