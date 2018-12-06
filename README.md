@@ -21,6 +21,8 @@ https://www.java.com/en/download/
 3. Install the Angular CLI
 cd <installation directory>/src/app/Blockchain/
 npm install -g @angular/cli@latest
+<new cmd window>
+ng update @angular/cli
 
 
 (Optional)
