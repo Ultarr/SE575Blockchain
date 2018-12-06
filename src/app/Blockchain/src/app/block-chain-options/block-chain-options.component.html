@@ -1,40 +1,38 @@
-<div class="centered">
-	<table>
-		<tr>
-			<td>
-				<span class="entry-title">Match: </span>
-			</td>
-			<td>
-				<input [(ngModel)]="this.match" placeholder="Enter Match Condition">
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<span class="entry-title">Max Tries: </span>
-			</td>
-			<td>
-				<input [(ngModel)]="this.maxTries" placeholder="Enter Max Tries on Solve">
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<span class="entry-title">Solver: </span>
-			</td>
-			<td>
-				<mat-select [(value)]="this.backend">
-					<mat-option value="Typescript">Local Typescript</mat-option>
-					<mat-option value="Java">Remote Java</mat-option>
-				</mat-select>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			</td>
-			<td>
-				<div class=centered>
-					<button md-raised-button (click)="onClose(true)">Save</button>
-				</div>
-			</td>
-		</tr>
-	</table>
-</div>
+<table class="table-center">
+	<tr>
+		<td>
+			<span class="entry-title">Match: </span>
+		</td>
+		<td>
+			<input [(ngModel)]="this.match" placeholder="Enter Match Condition">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<span class="entry-title">Max Tries: </span>
+		</td>
+		<td>
+			<input [(ngModel)]="this.maxTries" placeholder="Enter Max Tries on Solve">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<span class="entry-title">Solver: </span>
+		</td>
+		<td>
+			<mat-select [(value)]="this.backend">
+				<mat-option value="Typescript">Local Typescript</mat-option>
+				<mat-option value="Java">Remote Java</mat-option>
+			</mat-select>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		</td>
+		<td>
+			<div class=centered>
+				<button md-raised-button (click)="onClose(true)">Save</button>
+			</div>
+		</td>
+	</tr>
+</table>

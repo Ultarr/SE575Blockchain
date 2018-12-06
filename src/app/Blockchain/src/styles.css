@@ -1,9 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-mat-select {
-	width: 50% !important;
-}
 
 .td-container {
 	width: 35%;
@@ -45,4 +42,8 @@ mat-select {
 
 .centered {
 	text-align: center;
+}
+
+.table-center {
+	margin: 0px auto;
 }
