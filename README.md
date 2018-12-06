@@ -19,7 +19,8 @@ https://www.java.com/en/download/
 
 
 3. Install the Angular CLI
-- run install.sh
+cd <installation directory>/src/app/Blockchain/
+npm install -g @angular/cli@latest
 
 
 (Optional)
@@ -27,7 +28,8 @@ https://www.java.com/en/download/
 4. Compile the java executable
 - run build.sh
 
-(Required Java JDK)
+
+(Requires Java JDK)
 5. Launch the app
 - run start.sh
 or
