@@ -9,7 +9,7 @@ All scripts are available in the \<installation directory\>/scripts folder.
 ## Dependencies
 - Node.js (check with npm -version)
 - npm (will come with Node.js)
-- Java JDK (check with java -version)
+- Java JDK/JRE (check with java -version)
 
 
 
@@ -34,9 +34,7 @@ All scripts are available in the \<installation directory\>/scripts folder.
 
 
 
-*(Optional)*
-
-**_(Requires Java JRE)_**
+*(Optional)* **_(Requires Java JRE)_**
 
 4. Compile the java executable
 
@@ -44,10 +42,10 @@ All scripts are available in the \<installation directory\>/scripts folder.
 
 
 
-**_(Requires Java JDK)_**
 
 5. Launch the app
 
+**_(Requires Java JDK)_**
 - run start.sh
 
 
@@ -55,7 +53,6 @@ All scripts are available in the \<installation directory\>/scripts folder.
 
 
 **_(Does not require Java JDK)_**
-
 - run start_frontend.sh
 
 
