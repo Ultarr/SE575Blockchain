@@ -5,10 +5,12 @@ All scripts are available in the \<installation directory\>/scripts folder.
 
 
 
+
 ## Dependencies
 - Node.js (check with npm -version)
 - npm (will come with Node.js)
 - Java JDK (check with java -version)
+
 
 
 
@@ -18,6 +20,7 @@ All scripts are available in the \<installation directory\>/scripts folder.
 1. Install Node.js
 
 - https://nodejs.org/en/download/
+
 
 
 2. Install Java
@@ -30,23 +33,32 @@ All scripts are available in the \<installation directory\>/scripts folder.
 - run install.sh
 
 
+
 *(Optional)*
+
 **_(Requires Java JRE)_**
+
 4. Compile the java executable
 
 - run build.sh
 
 
+
 **_(Requires Java JDK)_**
+
 5. Launch the app
 
 - run start.sh
 
+
 *or*
+
 
 **_(Does not require Java JDK)_**
 
 - run start_frontend.sh
+
+
 
 
 ## Demo
